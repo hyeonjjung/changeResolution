@@ -3,8 +3,8 @@
 import os
 from PIL import Image
 
-dirPath = r"C:\Users\HyeonJung\Downloads\phoenix-2014-T.v3\phoenix-2014-T.v3\PHOENIX-2014-T-release-v3\PHOENIX-2014-T\features\fullFrame-210x260px"
-new_dirPath = r"C:\Users\HyeonJung\Downloads\phoenix-2014-T.v3\phoenix-2014-T.v3\PHOENIX-2014-T-release-v3\PHOENIX-2014-T\features\fullFrame-227x227px"
+dirPath = r"/home/jungmo/PHOENIX-2014-T-release-v3/PHOENIX-2014-T/features/fullFrame-210x260px"
+new_dirPath = r"/home/jungmo/PHOENIX-2014-T-release-v3/PHOENIX-2014-T/features/fullFrame-227x227px"
 directories = os.listdir(dirPath)
 if not (os.path.isdir(new_dirPath)):
     os.makedirs(new_dirPath)
