@@ -3,29 +3,33 @@
 import os
 from PIL import Image
 
-dirPath = r"/home/jungmo/PHOENIX-2014-T-release-v3/PHOENIX-2014-T/features/fullFrame-210x260px"
-new_dirPath = r"/home/jungmo/PHOENIX-2014-T-release-v3/PHOENIX-2014-T/features/fullFrame-227x227px"
+dirPath = r"C:\Users\HyeonJung\Downloads\phoenix-2014-T.v3\phoenix-2014-T.v3\PHOENIX-2014-T-release-v3\PHOENIX-2014-T\features\fullFrame-210x260px"
+new_dirPath = r"C:\Users\HyeonJung\Downloads\phoenix-2014-T.v3\phoenix-2014-T.v3\PHOENIX-2014-T-release-v3\PHOENIX-2014-T\features\fullFrame-227x227px"
+#dirPath = r"/home/jungmo/PHOENIX-2014-T-release-v3/PHOENIX-2014-T/features/fullFrame-210x260px"
+#new_dirPath = r"/home/jungmo/PHOENIX-2014-T-release-v3/PHOENIX-2014-T/features/fullFrame-227x227px"
 directories = os.listdir(dirPath)
 if not (os.path.isdir(new_dirPath)):
     os.makedirs(new_dirPath)
 for directory in directories: #dev, test,train
-    full_fileName = os.path.join(dirPath, directory)
-    directories_case = os.listdir(full_fileName)
-    new_full_fileName = os.path.join(new_dirPath, directory)
-    if not (os.path.isdir(new_full_fileName)):
-        os.makedirs(new_full_fileName)
-    for directory_case in directories_case:
-        full_fileName_case = os.path.join(full_fileName, directory_case)
-        imageFiles = os.listdir(full_fileName_case)
-        new_full_fileName_case = os.path.join(new_full_fileName, directory_case)
-        if not (os.path.isdir(new_full_fileName_case)):
-            os.makedirs(new_full_fileName_case)
-        for imageFile in imageFiles:
-            full_imageFile =  os.path.join(full_fileName_case, imageFile)
-            im = Image.open(full_imageFile)
-            resized_im = im.resize((227,227))
-            new_full_imageFile = os.path.join(new_full_fileName_case, imageFile)
-            resized_im.save(new_full_imageFile)
+    if directory == "train":
+        print(directory)
+        full_fileName = os.path.join(dirPath, directory)
+        directories_case = os.listdir(full_fileName)
+        new_full_fileName = os.path.join(new_dirPath, directory)
+        if not (os.path.isdir(new_full_fileName)):
+            os.makedirs(new_full_fileName)
+        for directory_case in directories_case:
+            full_fileName_case = os.path.join(full_fileName, directory_case)
+            imageFiles = os.listdir(full_fileName_case)
+            new_full_fileName_case = os.path.join(new_full_fileName, directory_case)
+            if not (os.path.isdir(new_full_fileName_case)):
+                os.makedirs(new_full_fileName_case)
+            for imageFile in imageFiles:
+                full_imageFile =  os.path.join(full_fileName_case, imageFile)
+                im = Image.open(full_imageFile)
+                resized_im = im.resize((227,227))
+                new_full_imageFile = os.path.join(new_full_fileName_case, imageFile)
+                resized_im.save(new_full_imageFile)
 
 
 
